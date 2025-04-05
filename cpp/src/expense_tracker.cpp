@@ -174,15 +174,15 @@ std::vector<std::shared_ptr<Expense>> ExpenseTracker::filterByDateTime(
     auto startParts = splitDate(startDate);
     auto endParts = splitDate(endDate);
 
-    startTm.tm_year = startParts[0] - 1900; // Year since 1900
-    startTm.tm_mon = startParts[1] - 1;     // Month is 0-based
+    startTm.tm_year = startParts[0]; // Year since 1900
+    startTm.tm_mon = startParts[1];     // Month is 0-based
     startTm.tm_mday = startParts[2];
     auto startday = startTm.tm_mday;
     auto startmonth = startTm.tm_mon;
     auto startyear = startTm.tm_year;
 
-    endTm.tm_year = endParts[0] - 1900; // Year since 1900
-    endTm.tm_mon = endParts[1] - 1;     // Month is 0-based
+    endTm.tm_year = endParts[0] ; // Year since 1900
+    endTm.tm_mon = endParts[1];     // Month is 0-based
     endTm.tm_mday = endParts[2];
     auto endday = endTm.tm_mday;
     auto endmonth = endTm.tm_mon;
@@ -199,6 +199,7 @@ std::vector<std::shared_ptr<Expense>> ExpenseTracker::filterByDateTime(
         int month = ptm->tm_mon + 1;     // tm_mon is 0-based (0 = January)
         int day   = ptm->tm_mday;
         
+        std::cout << year << " " << month << " " << day << "\n";
         //check if date is within the given range
         if (year >= startyear && year <= endyear) {
             if (month >= startmonth && month <= endmonth) {

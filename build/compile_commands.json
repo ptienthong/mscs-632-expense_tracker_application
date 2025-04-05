@@ -10,5 +10,41 @@
   "command": "/usr/bin/clang++  -I/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include  -g -ftest-coverage -fprofile-arcs -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7 -o CMakeFiles/expense_tracker.dir/cpp/src/expense_tracker.cpp.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/cpp/src/expense_tracker.cpp",
   "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/src/expense_tracker.cpp",
   "output": "CMakeFiles/expense_tracker.dir/cpp/src/expense_tracker.cpp.o"
+},
+{
+  "directory": "/Users/peeratienthong/mscs-632_expense_tracker_system/build",
+  "command": "/usr/bin/clang++  -I/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest  -g -ftest-coverage -fprofile-arcs -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7 -o CMakeFiles/expense_tracker_test.dir/cpp/test/expense_tracker_test.cpp.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/cpp/test/expense_tracker_test.cpp",
+  "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/test/expense_tracker_test.cpp",
+  "output": "CMakeFiles/expense_tracker_test.dir/cpp/test/expense_tracker_test.cpp.o"
+},
+{
+  "directory": "/Users/peeratienthong/mscs-632_expense_tracker_system/build",
+  "command": "/usr/bin/clang++  -I/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest  -g -ftest-coverage -fprofile-arcs -g -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7 -o CMakeFiles/expense_tracker_test.dir/cpp/src/expense_tracker.cpp.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/cpp/src/expense_tracker.cpp",
+  "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/src/expense_tracker.cpp",
+  "output": "CMakeFiles/expense_tracker_test.dir/cpp/src/expense_tracker.cpp.o"
+},
+{
+  "directory": "/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/clang++  -I/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include -I/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googlemock/include -I/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googlemock -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest  -g -ftest-coverage -fprofile-arcs -g -std=c++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7  -DGTEST_HAS_PTHREAD=1   -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googlemock/src/gmock-all.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+},
+{
+  "directory": "/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-build/googlemock",
+  "command": "/usr/bin/clang++  -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googlemock/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googlemock -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest  -g -ftest-coverage -fprofile-arcs -g -std=c++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7  -DGTEST_HAS_PTHREAD=1   -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googlemock/src/gmock_main.cc",
+  "output": "_deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o"
+},
+{
+  "directory": "/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/clang++  -I/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include -I/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/include -I/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest  -g -ftest-coverage -fprofile-arcs -g -std=c++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7  -DGTEST_HAS_PTHREAD=1   -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/src/gtest-all.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o"
+},
+{
+  "directory": "/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-build/googletest",
+  "command": "/usr/bin/clang++  -I/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/include -isystem /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest  -g -ftest-coverage -fprofile-arcs -g -std=c++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7  -DGTEST_HAS_PTHREAD=1   -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/build/_deps/googletest-src/googletest/src/gtest_main.cc",
+  "output": "_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o"
 }
 ]

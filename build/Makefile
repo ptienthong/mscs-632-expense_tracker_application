@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /Users/peeratienthong/mscs-632_expense_tracker_system/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
+	/Users/peeratienthong/miniforge3/envs/ros_env/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -84,6 +94,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"gmock\" \"gtest\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/Users/peeratienthong/miniforge3/envs/ros_env/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/Users/peeratienthong/miniforge3/envs/ros_env/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/Users/peeratienthong/miniforge3/envs/ros_env/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/Users/peeratienthong/miniforge3/envs/ros_env/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/Users/peeratienthong/miniforge3/envs/ros_env/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/Users/peeratienthong/miniforge3/envs/ros_env/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -129,12 +184,78 @@ expense_tracker/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker.dir/build.make CMakeFiles/expense_tracker.dir/build
 .PHONY : expense_tracker/fast
 
+#=============================================================================
+# Target rules for targets named expense_tracker_test
+
+# Build rule for target.
+expense_tracker_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 expense_tracker_test
+.PHONY : expense_tracker_test
+
+# fast build rule for target.
+expense_tracker_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker_test.dir/build.make CMakeFiles/expense_tracker_test.dir/build
+.PHONY : expense_tracker_test/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make _deps/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
 cpp/src/expense_tracker.o: cpp/src/expense_tracker.cpp.o
 .PHONY : cpp/src/expense_tracker.o
 
 # target to build an object file
 cpp/src/expense_tracker.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker.dir/build.make CMakeFiles/expense_tracker.dir/cpp/src/expense_tracker.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker_test.dir/build.make CMakeFiles/expense_tracker_test.dir/cpp/src/expense_tracker.cpp.o
 .PHONY : cpp/src/expense_tracker.cpp.o
 
 cpp/src/expense_tracker.i: cpp/src/expense_tracker.cpp.i
@@ -143,6 +264,7 @@ cpp/src/expense_tracker.i: cpp/src/expense_tracker.cpp.i
 # target to preprocess a source file
 cpp/src/expense_tracker.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker.dir/build.make CMakeFiles/expense_tracker.dir/cpp/src/expense_tracker.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker_test.dir/build.make CMakeFiles/expense_tracker_test.dir/cpp/src/expense_tracker.cpp.i
 .PHONY : cpp/src/expense_tracker.cpp.i
 
 cpp/src/expense_tracker.s: cpp/src/expense_tracker.cpp.s
@@ -151,6 +273,7 @@ cpp/src/expense_tracker.s: cpp/src/expense_tracker.cpp.s
 # target to generate assembly for a file
 cpp/src/expense_tracker.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker.dir/build.make CMakeFiles/expense_tracker.dir/cpp/src/expense_tracker.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker_test.dir/build.make CMakeFiles/expense_tracker_test.dir/cpp/src/expense_tracker.cpp.s
 .PHONY : cpp/src/expense_tracker.cpp.s
 
 cpp/src/main.o: cpp/src/main.cpp.o
@@ -177,6 +300,30 @@ cpp/src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker.dir/build.make CMakeFiles/expense_tracker.dir/cpp/src/main.cpp.s
 .PHONY : cpp/src/main.cpp.s
 
+cpp/test/expense_tracker_test.o: cpp/test/expense_tracker_test.cpp.o
+.PHONY : cpp/test/expense_tracker_test.o
+
+# target to build an object file
+cpp/test/expense_tracker_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker_test.dir/build.make CMakeFiles/expense_tracker_test.dir/cpp/test/expense_tracker_test.cpp.o
+.PHONY : cpp/test/expense_tracker_test.cpp.o
+
+cpp/test/expense_tracker_test.i: cpp/test/expense_tracker_test.cpp.i
+.PHONY : cpp/test/expense_tracker_test.i
+
+# target to preprocess a source file
+cpp/test/expense_tracker_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker_test.dir/build.make CMakeFiles/expense_tracker_test.dir/cpp/test/expense_tracker_test.cpp.i
+.PHONY : cpp/test/expense_tracker_test.cpp.i
+
+cpp/test/expense_tracker_test.s: cpp/test/expense_tracker_test.cpp.s
+.PHONY : cpp/test/expense_tracker_test.s
+
+# target to generate assembly for a file
+cpp/test/expense_tracker_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/expense_tracker_test.dir/build.make CMakeFiles/expense_tracker_test.dir/cpp/test/expense_tracker_test.cpp.s
+.PHONY : cpp/test/expense_tracker_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -184,14 +331,27 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... expense_tracker"
+	@echo "... expense_tracker_test"
+	@echo "... gmock"
+	@echo "... gmock_main"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... cpp/src/expense_tracker.o"
 	@echo "... cpp/src/expense_tracker.i"
 	@echo "... cpp/src/expense_tracker.s"
 	@echo "... cpp/src/main.o"
 	@echo "... cpp/src/main.i"
 	@echo "... cpp/src/main.s"
+	@echo "... cpp/test/expense_tracker_test.o"
+	@echo "... cpp/test/expense_tracker_test.i"
+	@echo "... cpp/test/expense_tracker_test.s"
 .PHONY : help
 
 

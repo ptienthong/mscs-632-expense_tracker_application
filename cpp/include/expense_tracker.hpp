@@ -53,15 +53,15 @@ void summary(std::string& startDate,
              std::string& endDate) const;
 void summary(char category) const;
 
-private:
-std::string name_;
-std::vector<std::shared_ptr<Expense>> expenses_;
-std::set<char> categories_;
-
 std::vector<std::shared_ptr<Expense>> filterByDateTime(
     std::string startDate, 
     std::string endDate) const;
 std::vector<std::shared_ptr<Expense>> filterByCategory(char category) const;
+
+private:
+std::string name_;
+std::vector<std::shared_ptr<Expense>> expenses_;
+std::set<char> categories_;
 
 };
 #endif // EXPENSE_TRACKER_HPP

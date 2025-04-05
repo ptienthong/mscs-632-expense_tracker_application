@@ -12,6 +12,38 @@ project(expense_tracker)
 
 include_directories(cpp/include)
 
-add_executable(expense_tracker cpp/src/main.cpp cpp/src/expense_tracker.cpp)
+add_executable(expense_tracker 
+    cpp/src/main.cpp 
+    cpp/src/expense_tracker.cpp
+    
+)
 
-# target_link_libraries(mylib ${Boost_LIBRARIES} ${EIGEN3_LIBRARIES})
+# ---------------------
+# GoogleTest Integration
+# ---------------------
+
+# Download and configure GoogleTest
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/heads/main.zip
+)
+
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+# Add test executable
+add_executable(expense_tracker_test 
+    cpp/test/expense_tracker_test.cpp 
+    cpp/src/expense_tracker.cpp
+)
+
+target_include_directories(expense_tracker_test PUBLIC cpp/include)
+
+target_link_libraries(expense_tracker_test 
+    gtest_main 
+)
+
+include(GoogleTest)
+gtest_discover_tests(expense_tracker_test)
