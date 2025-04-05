@@ -4,24 +4,32 @@
 #include <string_view>
 #include <ranges>
 
+// Expense Class Methods
 
+//Constructor for Expense Class
+// It initilizes the fields with vlaues passed in, using move semantics for description
 Expense::Expense(char category, std::string&& description, double amount, const std::chrono::time_point<std::chrono::system_clock> datetime)
     : dayMonthYear_(datetime), amount_(amount), category_(category), description_(std::move(description)) {
 }
 
+//Constructor for ExpenseTracker, intializes the name an prints the message
 ExpenseTracker::ExpenseTracker(const std::string& name) : name_(name) {
     std::cout << "Expense Tracker created for: " << name_ << '\n';
 }
 
+//add a new expense to the tracker by using shared_ptr to manage the memory safely and efficiently
 void ExpenseTracker::addExpense(Expense&& expense) {
     categories_.insert(expense.getCategory());
     expenses_.emplace_back(std::make_shared<Expense>(std::move(expense)));
     std::cout << "Expense added for " << name_ << '\n';
 }
 
+//Display all the expenses recorded so far
 void ExpenseTracker::view() const {
     std::cout << "Viewing all expenses for " << name_ << '\n';
     for (const auto& expense : expenses_) {
+
+        //convert chronological time_point to tm for human-readable date
         const std::time_t t_c = std::chrono::system_clock::to_time_t(expense->getDateTime());
         const std::tm* ptm = std::localtime(&t_c);
         
@@ -29,6 +37,7 @@ void ExpenseTracker::view() const {
         int month = ptm->tm_mon + 1;     // tm_mon is 0-based (0 = January)
         int day   = ptm->tm_mday;
 
+        //print formatted expense details
         std::cout << "YYYY-MM-DD: "<< year << "-" << month << "-" << day << 
                      ", Category: " << expense->getCategory() << 
                      ", Description: " << expense->getDescription() << 
@@ -36,6 +45,7 @@ void ExpenseTracker::view() const {
     }
 }
 
+//view expenses by date range
 void ExpenseTracker::view(std::string& startDate, 
                            std::string& endDate) const {
     std::cout << "Viewing expenses for " << name_ << " between specified dates" << "\n";
@@ -60,6 +70,7 @@ void ExpenseTracker::view(std::string& startDate,
 
 }
 
+//view expenses by category
 void ExpenseTracker::view(char category) const {
     std::cout << "Viewing expenses for " << name_ << " in category: " << category << '\n';
     auto filteredExpenses = filterByCategory(category);
@@ -82,6 +93,7 @@ void ExpenseTracker::view(char category) const {
     }
 }
 
+//summary of all expenses
 void ExpenseTracker::summary() const {
     
     for (const char& category : categories_) {
@@ -183,7 +195,8 @@ std::vector<std::shared_ptr<Expense>> ExpenseTracker::filterByDateTime(
         int year  = ptm->tm_year + 1900; // tm_year is years since 1900
         int month = ptm->tm_mon + 1;     // tm_mon is 0-based (0 = January)
         int day   = ptm->tm_mday;
-         
+
+        //check if date is within the given range 
         if (year >= startyear && year <= endyear) {
             if (month >= startmonth && month <= endmonth) {
                 if (day >= startday && day <= endday) {
