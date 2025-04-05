@@ -1,3 +1,4 @@
+// This header file defines the data model and core class interfaces for the C++ version of the Expense Tracker Application.
 #ifndef EXPENSE_TRACKER_HPP
 #define EXPENSE_TRACKER_HPP
 
@@ -7,6 +8,8 @@
 #include <memory>
 #include <vector>
 
+// Expense class: represents a single expense with category, description, amount, and time.
+// Default time is set to current if not provided.
 class Expense {
 
 public:
@@ -30,6 +33,9 @@ std::string description_;
 
 };
 
+//Class : ExpenseTracker
+// This class stores and manages a collection of Expense objects.
+// It provides functions for viewing, filtering, and summerizing the expenses.
 class ExpenseTracker {
 
 public:
