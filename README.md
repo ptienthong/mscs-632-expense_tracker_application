@@ -1,4 +1,10 @@
-# mscs-632-expense_tracker_application
+# Residency Weekend Project (04/04/2025-04/06/2025)
+# Expense Tracker Application
+## Advanced Programming Languages : MSCS-632
+- Instructor: Dr. Vanessa Cooper
+   
+    University of the Cumberlands
+## Group-1
 
 ## Overview
 A CLI-based expense tracker built in both Python and C++ to demonstrate language-specific features.
