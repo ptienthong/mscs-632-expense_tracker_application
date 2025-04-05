@@ -7,6 +7,7 @@
 #include <string>
 #include <memory>
 #include <vector>
+#include <set>
 
 // Expense class: represents a single expense with category, description, amount, and time.
 // Default time is set to current if not provided.
@@ -55,6 +56,7 @@ void summary(char category) const;
 private:
 std::string name_;
 std::vector<std::shared_ptr<Expense>> expenses_;
+std::set<char> categories_;
 
 std::vector<std::shared_ptr<Expense>> filterByDateTime(
     std::string startDate, 

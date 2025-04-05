@@ -14,6 +14,7 @@ ExpenseTracker::ExpenseTracker(const std::string& name) : name_(name) {
 }
 
 void ExpenseTracker::addExpense(Expense&& expense) {
+    categories_.insert(expense.getCategory());
     expenses_.emplace_back(std::make_shared<Expense>(std::move(expense)));
     std::cout << "Expense added for " << name_ << '\n';
 }
@@ -39,6 +40,10 @@ void ExpenseTracker::view(std::string& startDate,
                            std::string& endDate) const {
     std::cout << "Viewing expenses for " << name_ << " between specified dates" << "\n";
     auto filteredExpenses = filterByDateTime(startDate, endDate);
+    if (filteredExpenses.empty()) {
+        std::cout << "No expenses found in this date range.\n";
+        return;
+    }
     for (const auto& expense : filteredExpenses) {
         const std::time_t t_c = std::chrono::system_clock::to_time_t(expense->getDateTime());
         const std::tm* ptm = std::localtime(&t_c);
@@ -78,12 +83,16 @@ void ExpenseTracker::view(char category) const {
 }
 
 void ExpenseTracker::summary() const {
-    std::cout << "Total expenses for " << name_ << '\n';
+    
+    for (const char& category : categories_) {
+        summary(category);
+    }
+
     double total = 0;
     for (const auto& expense : expenses_) {
         total += expense->getAmount();
     }
-    std::cout << "Total amount spent: " << total << '\n';
+    std::cout << "Total amount spent: " << total << "$" << '\n';
 }
 
 void ExpenseTracker::summary(std::string& startDate, 
@@ -98,7 +107,6 @@ void ExpenseTracker::summary(std::string& startDate,
 }
 
 void ExpenseTracker::summary(char category) const {
-    std::cout << "Total expenses for " << name_ << " in category: " << category << '\n';
     auto filteredExpenses = filterByCategory(category);
     if (filteredExpenses.empty()) {
         std::cout << "No expenses found in this category.\n";
@@ -108,13 +116,32 @@ void ExpenseTracker::summary(char category) const {
     for (const auto& expense : filteredExpenses) {
         total += expense->getAmount();
     }
-    std::cout << "Total amount spent: " << total << '\n';
+    std::cout << category << ": " << total << "$" <<'\n';
 }
 
 std::vector<std::shared_ptr<Expense>> ExpenseTracker::filterByDateTime(
     std::string startDate, 
     std::string endDate) const {
     
+    // try and catch block to check if the date is in the correct format
+    try {
+        auto isValidDate = [](const std::string& date) {
+            if (date.size() != 10) throw std::invalid_argument("Invalid date length");
+            if (!std::isdigit(date[0]) || !std::isdigit(date[1]) || 
+                !std::isdigit(date[2]) || !std::isdigit(date[3])) throw std::invalid_argument("Invalid year format");
+            if (date[4] != '-') throw std::invalid_argument("Missing '-' after year");
+            if (!std::isdigit(date[5]) || !std::isdigit(date[6])) throw std::invalid_argument("Invalid month format");
+            if (date[7] != '-') throw std::invalid_argument("Missing '-' after month");
+            if (!std::isdigit(date[8]) || !std::isdigit(date[9])) throw std::invalid_argument("Invalid day format");
+            return true;
+        };
+
+        isValidDate(startDate);
+        isValidDate(endDate);
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Error: Invalid date format. " << e.what() << " Expected format is YYYY-MM-DD.\n";
+        return {};
+    }
     // extract year of start date and end date
     std::tm startTm = {}, endTm = {};
 
@@ -165,7 +192,6 @@ std::vector<std::shared_ptr<Expense>> ExpenseTracker::filterByDateTime(
             }
             
         }
-        filteredExpenses.push_back(expense);
     }
     return filteredExpenses;
 }
