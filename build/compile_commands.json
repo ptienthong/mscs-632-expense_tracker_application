@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/peeratienthong/mscs-632_expense_tracker_system/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include  -g -ftest-coverage -fprofile-arcs -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7 -o CMakeFiles/expense_tracker.dir/cpp/src/main.cpp.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/cpp/src/main.cpp",
+  "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/src/main.cpp",
+  "output": "CMakeFiles/expense_tracker.dir/cpp/src/main.cpp.o"
+},
+{
+  "directory": "/Users/peeratienthong/mscs-632_expense_tracker_system/build",
+  "command": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -I/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/include  -g -ftest-coverage -fprofile-arcs -std=gnu++20 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.7 -o CMakeFiles/expense_tracker.dir/cpp/src/expense_tracker.cpp.o -c /Users/peeratienthong/mscs-632_expense_tracker_system/cpp/src/expense_tracker.cpp",
+  "file": "/Users/peeratienthong/mscs-632_expense_tracker_system/cpp/src/expense_tracker.cpp",
+  "output": "CMakeFiles/expense_tracker.dir/cpp/src/expense_tracker.cpp.o"
+}
+]
