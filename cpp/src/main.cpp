@@ -3,10 +3,14 @@
 
 
 int main(){
+
+    // Create an ExpenseTracker instance for user "John Doe"
     auto tracker = ExpenseTracker("John Doe");
 
+    //Main program loop
     while (true)
     {
+        // Display menu options to the user
         std::cout << "Expense Tracker Menu:\n";
         std::cout << "1. Add Expense\n";
         std::cout << "2. View Expenses\n";
@@ -15,6 +19,7 @@ int main(){
         std::cout << "5. Summary\n";
         std::cout << "6. Exit\n";
 
+        // Prompt user to choose an option
         std::cout << "Choose an option (1-6): ";
         int choice;
         std::cin >> choice;
@@ -57,10 +62,14 @@ int main(){
             std::cout << "Exiting...\n";
             break;
         } else {
+            
+            // Invalid input handling
             std::cout << "Invalid choice. Please try again.\n";
             std::cout << "Choose an option (1-6): ";
             std::cin >> choice;
         }
+
+        //Divider between user actions for clarity
         std::cout << "\n";
         std::cout << "---------------------------------\n";
     }
