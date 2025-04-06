@@ -40,3 +40,20 @@ A CLI-based expense tracker built in both Python and C++ to demonstrate language
 - Pabitra - Helping on commenting for the code, report writing/documentation for all phases
 - Anna & Mariam - PowerPoint Presentation (drafting and presenting)
 
+## How to Run the Expense Tracker Application
+
+### Python 
+
+- **Ensure Python is installed:**
+You must have Python installed on your system. You can check this by running: `python --version`
+  
+- **Navigate to Python directory:**  
+`cd python`
+
+- **Run the unit tests:**
+To verify that the core functionality works as expected, run: `python test_expense_tracker.py`
+
+- **Run the Expense Tracker application:**
+To start the CLI-based expense tracker: `python mainmenu_expense_tracker.py`
+
+### C++ 
