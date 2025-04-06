@@ -57,3 +57,31 @@ To verify that the core functionality works as expected, run: `python test_expen
 To start the CLI-based expense tracker: `python mainmenu_expense_tracker.py`
 
 ### C++ 
+
+- **Ensure Cpp binary is built:**
+Navigate to ```build``` directory,
+```
+cd build/
+```
+Then run the following command to ensure CMake finds the build configuration found in ```CMakeLists.txt```.
+```
+cmake ..
+```
+After it's complete, build it from source by running the command.
+```
+make
+```
+- **build the test:**
+```
+cd build/
+cmake --build . --target expense_tracker_test
+```
+- **Run the test and program from the binaries:**
+From the build folder, run the test,
+```
+./expense_tracker_test
+```
+As well as the program,
+```
+./expense_tracker
+```
