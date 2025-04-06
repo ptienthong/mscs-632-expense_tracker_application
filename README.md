@@ -22,15 +22,21 @@ A CLI-based expense tracker built in both Python and C++ to demonstrate language
 ## C++ Design
 - Data: vector,list
 - STL usage: chrono,fstream,iostream, string
-- 
-
+  
 ## Anticipated Challenges
-- 
-- 
-- 
+- In C++ :
+1. Date Parsing with chrono
+2. Input Validation
+3. Testing with GoogleTest
 
+- In Python :
+1. Dynamic typing in Python
+2. Date parsing with datetime.strptime()
+3. Manual testing was time consuming
 
 ## Team Roles
 - Avinna – Python functions
 - Peera - C++ functions
+- Pabitra - Helping on commenting for the code, report writing/documentation for all phases
+- Anna & Mariam - PowerPoint Presentation (drafting and presenting)
 
